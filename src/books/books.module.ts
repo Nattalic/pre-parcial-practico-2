@@ -11,6 +11,6 @@ import { LibrarySeedService } from './library-seed.service';
   imports: [TypeOrmModule.forFeature([BookEntity, CategoryEntity])],
   controllers: [BooksController],
   // TODO 2: Register BookRulesService as a provider.
-  providers: [BooksService, LibrarySeedService],
+  providers: [BooksService, LibrarySeedService, BookRulesService],
 })
 export class BooksModule {}

@@ -15,6 +15,10 @@ export class BooksController {
   }
 
   // TODO 1: Implement POST /api/books with a validated CreateBookDto.
+  @Post()
+  create(@Body(requestValidationPipe) dto: CreateBookDto){
+    return this.booksService.create(dto)
+  }
 
   // Completed reference endpoint. Keep it BEFORE the dynamic GET ':id' route.
   @Get('search')

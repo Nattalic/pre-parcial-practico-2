@@ -16,6 +16,8 @@ export class BooksService {
     @InjectRepository(CategoryEntity)
     private readonly categoriesRepository: Repository<CategoryEntity>,
     // TODO 2: Inject BookRulesService through this constructor.
+    private readonly bookRulesService: BookRulesService
+    
   ) {}
 
   async create(dto: CreateBookDto): Promise<BookEntity> {
