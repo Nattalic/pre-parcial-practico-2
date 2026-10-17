@@ -27,6 +27,10 @@ export class BooksController {
   }
 
   // TODO 2: Implement PATCH /api/books/:id/borrow with ParseIntPipe and no body.
+@Patch(':id/borrow')
+borrow(@Param('id', ParseIntPipe) id:number){
+  return this.booksService.borrow(id)
+}
 
   // The existing endpoints below are completed. Do not change them.
   @Get(':id')

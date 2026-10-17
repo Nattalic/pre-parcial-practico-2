@@ -44,7 +44,13 @@ export class BooksService {
 
   async borrow(id: number): Promise<BookEntity> {
     // TODO 2: Find the book, call the rule, subtract one copy, save and return.
-    throw new NotImplementedException('TODO 2: implement borrowing');
+    const book = await this.findOne(id)
+
+    this.bookRulesService.ensureCanBorrow(book)
+
+    book.availableCopies = book.availableCopies - 1
+
+    return this.booksRepository.save(book);
   }
 
   // The methods below are already completed. Do not change them.
