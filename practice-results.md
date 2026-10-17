@@ -4,13 +4,13 @@ Completar después de realizar las peticiones. Sustituir los ejemplos por los ID
 
 | Petición y datos utilizados | Código esperado | Código obtenido | Observación |
 | --- | --- | --- | --- |
-| Crear un libro con 0 copias y una categoría existente. | 201 | Pendiente | |
-| Crear con copias como texto o una propiedad adicional. | 400 | Pendiente | |
-| Crear con una categoría inexistente. | 404 | Pendiente | |
-| Prestar y consultar el descuento guardado. | 200 | Pendiente | |
-| Intentar prestar un libro con 0 copias. | 409 | Pendiente | |
-| Intentar prestar con ID abc. | 400 | Pendiente | |
-| Intentar prestar con ID entero inexistente. | 404 | Pendiente | |
+| Crear un libro con 0 copias y una categoría existente. | 201 | 201 | |
+| Crear con copias como texto o una propiedad adicional. | 400 | 400 | |
+| Crear con una categoría inexistente. | 404 | 404 | |
+| Prestar y consultar el descuento guardado. | 200 | 200 | |
+| Intentar prestar un libro con 0 copias. | 409 | 409 | |
+| Intentar prestar con ID abc. | 400 | 400 | |
+| Intentar prestar con ID entero inexistente. | 404 | 404 | |
 
 ## Pruebas
 
@@ -18,12 +18,14 @@ Pegar el resumen de `npm test` o registrar el resultado de cada una de las tres 
 
 | Prueba | Resultado obtenido |
 | --- | --- |
-| 1. Regla real: sin copias. | Pendiente |
-| 2. Servicio: préstamo exitoso. | Pendiente |
-| 3. Servicio: rechazo sin guardar. | Pendiente |
+| 1. Regla real: sin copias. | Passed |
+| 2. Servicio: préstamo exitoso. | Passed |
+| 3. Servicio: rechazo sin guardar. | Passed |
+
+![alt text](tests-resume.png)
 
 ## Comprensión del ejercicio
 
 Explicar brevemente, señalando el propio código, por qué registrar un libro con 0 copias está permitido, pero prestar ese mismo libro no.
 
-Respuesta: pendiente.
+Respuesta: Registrar un libro con 0 copias esta permitido ya que en las validaciones del dto tenemos que el min de copias permitido es 0 (@Min(0)). Sin embargo, prestar ese mismo libro con 0 copias no esta permitido, ya que en bookRulesService el metodo verifica si las copias son igual a 0, y si es asi, el metodo lanza un error, que significa que no hay copias disponibles, osea que no puedes prestar un libro que no tiene copias :p
